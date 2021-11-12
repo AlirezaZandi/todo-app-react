@@ -1,0 +1,21 @@
+.filters-container {
+  background-color: $bg-todo;
+  width: 90vw;
+  max-width: 700px;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+
+  button {
+    background-color: transparent;
+    color: $Dark-Grayish-Blue;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    &.active {
+      color: $Bright-Blue;
+    }
+  }
+}

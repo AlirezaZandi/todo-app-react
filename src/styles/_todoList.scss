@@ -1,0 +1,77 @@
+.todo-list-container {
+  width: 90vw;
+  max-width: 700px;
+  background-color: $bg-todo;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 12px;
+  padding-bottom: 20px;
+  .todo-list {
+    .todo {
+      display: flex;
+      gap: 10px;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid $Dark-Grayish-Blue;
+      width: 90%;
+      margin-inline: auto;
+      &__description {
+        width: 100%;
+        text-align: left;
+        overflow: hidden;
+        word-wrap: break-word;
+      }
+      button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: transparent;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      &__check {
+        border: 1px solid $Dark-Grayish-Blue;
+        &.active {
+          background-image: linear-gradient(
+            to bottom right,
+            hsl(192, 100%, 67%),
+            hsl(280, 87%, 65%)
+          );
+          &::after {
+            content: "";
+            border-bottom: 3px solid white;
+            border-left: 3px solid white;
+            width: 50%;
+            height: 8px;
+            margin-inline: auto;
+            display: block;
+            transform-origin: center;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      &__delete {
+        border: none;
+      }
+    }
+  }
+
+  .todo-control {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+
+    button {
+      background-color: transparent;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 1.2rem;
+      border: none;
+      color: $Very-Dark-Grayish-Blue;
+    }
+  }
+}

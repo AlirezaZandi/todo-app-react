@@ -1,0 +1,29 @@
+.input-todo {
+  background-color: $bg-todo;
+  width: 90vw;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 12px;
+  .input__btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid $Dark-Grayish-Blue;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .input__input {
+    background-color: $bg-todo;
+    outline: none;
+    border: none;
+    width: 80%;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.5rem;
+    color: $txt-active;
+    height: 4rem;
+  }
+}
