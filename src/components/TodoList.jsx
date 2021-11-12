@@ -6,87 +6,28 @@ class TodoList extends React.Component {
     return (
       <div className="todo-list-container">
         <ul className="todo-list">
-          <li className="todo">
-            <button className="todo__check active"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
-          <li className="todo">
-            <button className="todo__check"></button>
-            <p className="todo__description">learn JS</p>
-            <button className="todo__delete">
-              <img src={cross} alt="" />
-            </button>
-          </li>
+          {this.props.todoList.map((todo, index) => {
+            const classNameBtn = todo["completed"]
+              ? "todo__check active"
+              : "todo__check";
+            return (
+              <li key={index} className="todo">
+                <button
+                  className={classNameBtn}
+                  onClick={() => this.props.onCheck(index)}></button>
+                <p className="todo__description">{todo["description"]}</p>
+                <button
+                  className="todo__delete"
+                  onClick={() => this.props.onDelete(index)}>
+                  <img src={cross} alt="" />
+                </button>
+              </li>
+            );
+          })}
         </ul>
         <div className="todo-control">
-          <button>5 items left</button>
-          <button>clear</button>
+          <p>{this.props.todoList.length} items left</p>
+          <button onClick={this.props.onClear}>clear</button>
         </div>
       </div>
     );
