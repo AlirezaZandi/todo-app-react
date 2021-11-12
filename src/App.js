@@ -8,11 +8,7 @@ import "./styles/style.css";
 class App extends React.Component {
   state = {
     darekTheme: true,
-    todoList: [
-      { description: "learn JS", completed: false },
-      { description: "hi", completed: true },
-      { description: "hi", completed: true },
-    ],
+    todoList: [],
     filter: "all",
   };
 
@@ -23,11 +19,12 @@ class App extends React.Component {
     this.setState({ todoList });
   };
 
-  handleCheck = (index) => {
+  handleCheck = (todo) => {
     const todoList = [...this.state.todoList];
-    const todo = { ...todoList[index] };
-    todoList[index] = todo;
-    todo["completed"] = !todo["completed"];
+    const index = todoList.indexOf(todo);
+    const todo1 = { ...todoList[index] };
+    todoList[index] = todo1;
+    todo1["completed"] = !todo1["completed"];
     this.setState({ todoList });
   };
 
@@ -36,9 +33,9 @@ class App extends React.Component {
     this.setState({ todoList });
   };
 
-  handleDelete = (index) => {
-    console.log(index);
+  handleDelete = (todo) => {
     const todoList = [...this.state.todoList];
+    const index = todoList.indexOf(todo);
     todoList.splice(index, 1);
     this.setState({ todoList });
   };
@@ -66,7 +63,7 @@ class App extends React.Component {
       todoListFilter = todoList;
     }
     return (
-      <div className="App">
+      <div className="App dark">
         <header>
           <Title />
         </header>

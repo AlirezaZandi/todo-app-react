@@ -148,10 +148,15 @@ ul {
 }
 
 .todo-list-container .todo-list .todo__description {
-  width: 100%;
+  width: 80%;
   text-align: left;
   overflow: hidden;
   word-wrap: break-word;
+}
+
+.todo-list-container .todo-list .todo__description.checked {
+  text-decoration: line-through;
+  opacity: 0.7;
 }
 
 .todo-list-container .todo-list .todo button {

@@ -14,11 +14,18 @@ class TodoList extends React.Component {
               <li key={index} className="todo">
                 <button
                   className={classNameBtn}
-                  onClick={() => this.props.onCheck(index)}></button>
-                <p className="todo__description">{todo["description"]}</p>
+                  onClick={() => this.props.onCheck(todo)}></button>
+                <p
+                  className={
+                    todo.completed
+                      ? "todo__description checked"
+                      : "todo__description"
+                  }>
+                  {todo["description"]}
+                </p>
                 <button
                   className="todo__delete"
-                  onClick={() => this.props.onDelete(index)}>
+                  onClick={() => this.props.onDelete(todo)}>
                   <img src={cross} alt="" />
                 </button>
               </li>
@@ -26,7 +33,7 @@ class TodoList extends React.Component {
           })}
         </ul>
         <div className="todo-control">
-          <p>{this.props.todoList.length} items left</p>
+          <button>{this.props.todoList.length} items left</button>
           <button onClick={this.props.onClear}>clear</button>
         </div>
       </div>
