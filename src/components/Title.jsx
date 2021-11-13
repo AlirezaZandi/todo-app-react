@@ -1,20 +1,17 @@
 import React from "react";
-import themeToggle from "../images/icon-moon.svg";
+import themeMoon from "../images/icon-moon.svg";
+import themeSun from "../images/icon-sun.svg";
 
 class Title extends React.Component {
-  handleClick = () => {
-    //chnage theme
-    console.log(1);
-  };
   render() {
     return (
       <div className="header">
         <h1 className="header__title">TODO</h1>
         <img
-          src={themeToggle}
+          src={this.props.dark ? themeSun : themeMoon}
           alt=""
           className="header__toggle-theme"
-          onClick={this.handleClick}
+          onClick={this.props.onThemeChange}
         />
       </div>
     );

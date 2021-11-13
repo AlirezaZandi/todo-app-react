@@ -7,8 +7,10 @@ class InputTodo extends React.Component {
 
   handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      this.setState({ inputValue: "" });
-      this.props.onSubmit(this.state.inputValue);
+      if (this.state.inputValue !== "") {
+        this.setState({ inputValue: "" });
+        this.props.onSubmit(this.state.inputValue);
+      }
     }
   };
 
@@ -20,9 +22,7 @@ class InputTodo extends React.Component {
   render() {
     return (
       <div className="input-todo">
-        <button
-          className="input__btn"
-          onClick={() => this.props.onSubmit(this.state.inputValue)}></button>
+        <button className="input__btn"></button>
         <input
           value={this.state.inputValue}
           className="input__input"

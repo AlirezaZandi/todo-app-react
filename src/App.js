@@ -7,7 +7,7 @@ import "./styles/style.css";
 
 class App extends React.Component {
   state = {
-    darekTheme: true,
+    darkTheme: true,
     todoList: [],
     filter: "all",
   };
@@ -44,8 +44,13 @@ class App extends React.Component {
     this.setState({ filter });
   };
 
+  handleThemeChange = () => {
+    const darkTheme = !this.state.darkTheme;
+    this.setState({ darkTheme });
+  };
+
   render() {
-    const { todoList, filter } = this.state;
+    const { todoList, filter, darkTheme } = this.state;
     let todoListFilter;
     if (filter === "active") {
       todoListFilter = todoList.filter((todo) => {
@@ -62,10 +67,11 @@ class App extends React.Component {
     } else {
       todoListFilter = todoList;
     }
+    const appClass = darkTheme ? "App" : "App light";
     return (
-      <div className="App dark">
+      <div className={appClass}>
         <header>
-          <Title />
+          <Title dark={darkTheme} onThemeChange={this.handleThemeChange} />
         </header>
         <main>
           <InputTodo onSubmit={this.handleSubmit} />
